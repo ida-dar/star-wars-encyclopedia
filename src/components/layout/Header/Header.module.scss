@@ -1,0 +1,90 @@
+@import '../../../styles/settings.scss';
+
+.component {
+  background: $color-secondary;
+  padding: ($base-size) 0;
+  color: $color-light;
+
+  .nav {
+    font-size: 0.95rem;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin-top: ($base-size * 1.5);
+
+    a {
+      color: $color-light;
+      margin-right: ($base-size * 3);
+      padding-bottom: ($base-size / 2);
+      transition: color 0.4s linear;
+      width: fit-content;
+      height: fit-content;
+
+      &:last-of-type {
+        margin-right: 0;
+      }
+      &:hover {
+        color: $color-primary;
+      }
+      &:global(.active) {
+        border-bottom: 2px solid $color-primary;
+      }
+    }
+  }
+
+  .icons {
+    i {
+      font-size: 1.5rem;
+    }
+  }
+
+  .button {
+    display: none;
+    border: none;
+    background-color: none;
+    color: $color-light;
+    cursor: pointer;
+    margin: 0 auto;
+  }
+}
+
+.logo {
+  display: inline-block;
+  padding: 0 15px;
+  color: $color-light;
+  font-size: 1.2rem;
+}
+
+@media (max-width: 576px) {
+
+  .component  {
+    text-align: center;
+
+    .button {
+      display: inline-block;
+    }
+
+    .nav {
+      flex-direction: column;
+      margin-top: ($base-size * 1.5);
+      overflow: hidden;
+      height: 0;
+      transition: height 0.5s ease-in-out;
+
+      a, a:last-of-type {
+        margin: 0 auto;
+      }
+
+      &.opened {
+        height: 200px;
+      }
+    }
+  }
+}
+
+@media (min-width: 576px) and (max-width: 1200px) {
+
+  .component  {
+    text-align: center;
+  }
+}

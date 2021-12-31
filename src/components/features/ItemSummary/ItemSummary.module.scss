@@ -1,0 +1,25 @@
+@import '../../../styles/settings.scss';
+
+.component {
+  display: block;
+  margin-top: ($base-size * 2);
+  color: $color-dark;
+  text-decoration: none;
+  border: 1px solid lighten($color-dark, 70%);
+  transition: $transition;
+  min-height: 250px;
+  max-height: 275px;
+  padding: $base-size;
+  background: $color-light;
+
+  &:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 40px 40px 0 rgba(0,0,0,0.16);
+    color: $color-dark;
+  }
+}
+
+.name {
+  padding: 0;
+  margin: 8px 0;
+}

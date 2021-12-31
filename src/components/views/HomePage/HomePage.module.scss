@@ -1,0 +1,21 @@
+@import '../../../styles/settings.scss';
+
+.text {
+  text-align: center;
+  padding: ($base-size * 2) 0;
+
+  .title {
+    font-size: calc(15px + ((36 * (100vw - 720px)) / 720)); // magic number
+    padding: $base-size 0;
+  }
+
+  .subtitle {
+    font-size: 2.25rem;
+  }
+
+  p {
+    width: 50vw;
+    font-size: 1.2rem;
+    padding: ($base-size * 2) 0;
+  }
+}
