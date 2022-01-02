@@ -2,7 +2,11 @@
 
 .text {
   text-align: center;
-  padding: ($base-size * 2) 0;
+  padding: ($base-size * 10) 0;
+  margin: 0;
+  min-height: calc(100vh - 88px); // 88px - height of header
+  background-color: $color-secondary;
+  color: $color-light;
 
   .title {
     font-size: calc(15px + ((36 * (100vw - 720px)) / 720)); // magic number
@@ -14,7 +18,7 @@
   }
 
   p {
-    width: 50vw;
+    width: 55vw;
     font-size: 1.2rem;
     padding: ($base-size * 2) 0;
   }

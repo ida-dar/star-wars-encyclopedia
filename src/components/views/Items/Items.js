@@ -9,7 +9,7 @@ import Loader from '../../features/Loader/Loader';
 import Error from '../../features/Error/Error';
 import Button from '../../common/Button/Button';
 
-const Items = ({ items, nextPage, previousPage, request }) => {
+const Items = ({ items, loadPage, previousPage, request }) => {
 
   const location = useLocation();
   let data;
@@ -46,18 +46,18 @@ const Items = ({ items, nextPage, previousPage, request }) => {
   const pages = Math.ceil(data.count / data.results.length);
 
   return(
-    <div>
+    <div className='container'>
       {request.error === true && <Error />}
       {request.pending === true && <Loader />}
       {request.success === true &&
       <>
         <Filters />
         <div className={styles.pageContainer}>
-          <p className={styles.pages}>Number of pages: {pages}</p>
+          <p className={styles.pages}>No. of pages: {pages}</p>
           {(data.next !== null) && <p className={styles.pages}>Current page: {parseInt(data.next.charAt(data.next.length-1)) - 1}</p>}
           <div className={styles.buttonContainer}>
-            {(data.previous !== null) && <Button onClick={() => previousPage(data.previous)} variant='blue'>Previous page</Button>}
-            {(data.next !== null) && <Button onClick={() => nextPage(data.next)} variant='blue'>Next page</Button>}
+            {(data.previous !== null) && <Button onClick={() => loadPage(data.previous)} variant='blue'>Previous page</Button>}
+            {(data.next !== null) && <Button onClick={() => loadPage(data.next)} variant='blue'>Next page</Button>}
           </div>
         </div>
       </>
@@ -73,8 +73,7 @@ const Items = ({ items, nextPage, previousPage, request }) => {
 
 Items.propTypes = {
   items: PropTypes.object,
-  nextPage: PropTypes.func,
-  previousPage: PropTypes.func,
+  loadPage: PropTypes.func,
   request: PropTypes.object,
 };
 

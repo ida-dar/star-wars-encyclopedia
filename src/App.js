@@ -4,12 +4,6 @@ import {BrowserRouter, Route, Routes} from 'react-router-dom';
 
 import MainLayout from './components/layout/MainLayout/MainLayout';
 import HomePage from './components/views/HomePage/HomePage';
-// import Planets from './components/views/Planets/PlanetsContainer';
-// import People from './components/views/People/PeopleContainer';
-// import Species from './components/views/Species/SpeciesContainer';
-// import Vehicles from './components/views/Vehicles/VehiclesContainer';
-// import Starships from './components/views/Starships/StarshipsContainer';
-// import Films from './components/views/Films/FilmsContainer';
 import ItemView from './components/views/ItemView/ItemViewContainer';
 import Items from './components/views/Items/ItemsContainer'
 

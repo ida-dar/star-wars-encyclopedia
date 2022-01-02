@@ -60,7 +60,7 @@ class Filters extends React.Component {
             <button className={styles.button} type='submit'>Search</button>
           </form>
         </div>
-        <div className={`col-lg-5 col-md-6 col-sm-12 ${styles.results}`}>
+        <div className={`col-lg-6 col-md-6 col-sm-12 ${styles.results}`}>
           {(item && isError === false) ?
             <p className={styles.link}>Search results:
               {item.map(el => {

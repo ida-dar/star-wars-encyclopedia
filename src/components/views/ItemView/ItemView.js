@@ -19,11 +19,11 @@ const ItemView = ({ singleItem, loadOne, request }) => {
   const {created, edited, title, name, url, ...rest} = singleItem;
 
   return(
-      <div>
+      <div className='container'>
         {request.error === true && <Error />}
         {request.pending === true && <Loader />}
-        {request.succes && <h3 className={styles.title}>{title || name}</h3>}
-        {request.succes && Object.entries(rest).map(([key, value]) => {
+        {request.success === true && <h3 className={styles.title}>{title || name}</h3>}
+        {request.success === true && Object.entries(rest).map(([key, value]) => {
           const cap = key.charAt(0).toUpperCase() + key.slice(1);
           const cleanKey = cap.replace('_', ' ');
 

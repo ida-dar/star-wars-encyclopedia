@@ -23,6 +23,7 @@ a, a:hover, a:visited {
 
 .container {
   max-width: 1200px;
+  padding-bottom: ($base-size * 4);
 }
 
 @import "./typography.scss";

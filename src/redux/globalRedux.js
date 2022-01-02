@@ -20,16 +20,14 @@ const START_REQUEST = createActionName('START_REQUEST');
 const END_REQUEST = createActionName('END_REQUEST');
 const ERROR_REQUEST = createActionName('ERROR_REQUEST');
 const LOAD_ALL = createActionName('LOAD_ALL');
-const LOAD_NEXT = createActionName('LOAD_NEXT');
-const LOAD_PREVIOUS = createActionName('LOAD_PREVIOUS');
+const LOAD_PAGE = createActionName('LOAD_NEXT');
 
 /* action creators */
 export const startRequest = () => ({ type: START_REQUEST });
 export const endRequest = () => ({ type: END_REQUEST });
 export const errorRequest = error => ({ error, type: ERROR_REQUEST });
 export const loadAll = payload => ({ payload, type: LOAD_ALL });
-export const loadNext = payload => ({ payload, type: LOAD_NEXT });
-export const loadPrevious = payload => ({ payload, type: LOAD_PREVIOUS });
+export const loadPage = payload => ({ payload, type: LOAD_PAGE });
 
 /* thunk creators */
 export const fetchAll = () => {
@@ -65,10 +63,10 @@ export const fetchAll = () => {
   };
 };
 
-export const fetchNextPage = (url) => {
+export const fetchPage = (url) => {
 
   return async (dispatch, getState) => {
-    dispatch(startRequest({ name: 'LOAD_NEXT' }));
+    dispatch(startRequest({ name: 'LOAD_PAGE' }));
 
     const state = getState();
 
@@ -82,37 +80,10 @@ export const fetchNextPage = (url) => {
         else if(url.includes('species')) data.species = res.data;
         else if(url.includes('vehicles')) data.vehicles = res.data;
         else if(url.includes('starships')) data.starships = res.data;
+        else if(url.includes('films')) data.films = res.data;
 
-        dispatch(loadNext(state.data));
-        dispatch(endRequest({ name: 'LOAD_NEXT' }));
-
-      } catch(e) {
-        dispatch(errorRequest(e.message));
-      }
-    };
-  }
-};
-
-export const fetchPreviousPage = (url) => {
-
-  return async (dispatch, getState) => {
-    dispatch(startRequest({ name: 'LOAD_PREVIOUS' }));
-
-    const state = getState();
-
-    if(url !== null){
-      try {
-        const res = await axios.get(url);
-        const data = state.data;
-
-        if(url.includes('planets')) data.planets = res.data;
-        else if(url.includes('people')) data.people = res.data;
-        else if(url.includes('species')) data.species = res.data;
-        else if(url.includes('vehicles')) data.vehicles = res.data;
-        else if(url.includes('starships')) data.starships = res.data;
-
-        dispatch(loadPrevious(state.data));
-        dispatch(endRequest({ name: 'LOAD_PREVIOUS' }));
+        dispatch(loadPage(state.data));
+        dispatch(endRequest({ name: 'LOAD_PAGE' }));
 
       } catch(e) {
         dispatch(errorRequest(e.message));
@@ -130,13 +101,7 @@ export default function reducer(statePart = [], action = {}) {
         ...action.payload,
       }
     }
-    case LOAD_NEXT: {
-      return {
-        ...statePart,
-        ...action.payload,
-      }
-    }
-    case LOAD_PREVIOUS: {
+    case LOAD_PAGE: {
       return {
         ...statePart,
         ...action.payload,
