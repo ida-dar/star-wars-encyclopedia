@@ -1,0 +1,28 @@
+@import '../../../styles/settings.scss';
+
+.component {
+  margin: ($base-size * 3);
+  padding: ($base-size * 0.5) ($base-size);
+  border: none;
+  border-radius: ($radius * 0.7);
+  background-color: $color-primary;
+  color: $color-secondary;
+  transition: all 0.3s ease-in-out;
+
+  &:hover {
+    background: $color-secondary;
+    color: $color-primary;
+  }
+}
+
+.blue {
+  @extend .component;
+  background-color: $color-bg-light;
+  border: 1px solid $color-bg-light;
+
+  &:hover {
+    background: $color-light;
+    border: 1px solid $color-bg-light;
+    color: $color-bg-light;
+  }
+}

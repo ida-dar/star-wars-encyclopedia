@@ -2,6 +2,7 @@ import axios from 'axios';
 
 /* SELECTORS */
 export const getOne = ({singleItem}) => singleItem.data;
+export const getRequests = ({singleItem}) => singleItem.request;
 
 /* action name creator */
 const reducerName = 'singleItem';
@@ -19,16 +20,14 @@ export const endRequest = payload => ({ payload, type: END_REQUEST });
 export const errorRequest = payload => ({ payload, type: ERROR_REQUEST });
 export const loadOne = payload => ({ payload, type: LOAD_ONE });
 
-export const fetchOneItem = () => {
+export const fetchOneItem = (category, name) => {
 
   return async dispatch => {
     dispatch(startRequest());
 
     try {
-      const url = window.location.pathname.split('/');
-      const [ category, name ] = url.slice(-2);
-      const res = await axios.get(`https://swapi.dev/api/${category}`);
-      const item = await res.data.results.filter(el => (el.name || el.title) === name.replaceAll('-', ' '));
+      const res = await axios.get(`https://swapi.dev/api/${category}/?search=${name.replaceAll('-', ' ')}`);
+      const item = res.data.results;
 
       dispatch(loadOne(item[0]));
       dispatch(endRequest());

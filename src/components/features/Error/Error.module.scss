@@ -1,0 +1,9 @@
+@import '../../../styles/settings.scss';
+
+.error {
+  margin: ($base-size * 5) auto;
+
+  p {
+    font-size: 1.25rem;
+  }
+}

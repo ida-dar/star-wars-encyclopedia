@@ -56,8 +56,8 @@ class Filters extends React.Component {
                 value={search.input}
                 onChange={this.updateTextField}
               />
-              </label>
-              <button className={styles.button} type='submit'>Search</button>
+            </label>
+            <button className={styles.button} type='submit'>Search</button>
           </form>
         </div>
         <div className={`col-lg-5 col-md-6 col-sm-12 ${styles.results}`}>
@@ -67,7 +67,7 @@ class Filters extends React.Component {
               const category = el.url.split('/', -2);
 
               return(
-                <a href={`${process.env.PUBLIC_URL}/${category[4]}/${el.name.replaceAll(' ', '-')}`} key={el.name}>{el.name}</a>
+                <a href={`${process.env.PUBLIC_URL}/${category[4]}/${el.name ? el.name.replaceAll(' ', '-') : el.title.replaceAll(' ', '-')}`} key={el.url}>{el.name || el.title}</a>
               )
               })}
           </p> : <p className={styles.link}>An error occured during your search. Please try again.</p>}

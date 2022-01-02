@@ -1,0 +1,38 @@
+@import '../../../styles/settings.scss';
+
+.pageContainer {
+  display: flex;
+  flex-direction: row;
+  max-width: 800px;
+  margin: ($base-size * 2) auto;
+  justify-content: space-between;
+  align-content: center;
+
+  .pages {
+    display: inline-block;
+    height: 25px;
+    margin: ($base-size * 3.5) $base-size;
+  }
+}
+
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  margin: 0 auto;
+  justify-content: center;
+  align-content: center;
+}
+
+@media (max-width: 576px) {
+
+  .pageContainer, .pageContainer .buttonContainer {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .pageContainer {
+    .pages {
+      margin: 0;
+    }
+  }
+}

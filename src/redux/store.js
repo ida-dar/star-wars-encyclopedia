@@ -27,18 +27,23 @@ const initialState = {
     starships: {
       results: [],
     },
+    request: {
+      pending: false,
+      error: null,
+      success: null,
+    },
   },
   singleItem: {
     data: {},
+    request: {
+      pending: false,
+      error: null,
+      success: null,
+    },
   },
   filters: {
     searchPhrase: '',
     searchedItem: [],
-  },
-  request: {
-    pending: false,
-    error: null,
-    success: null,
   },
 };
 

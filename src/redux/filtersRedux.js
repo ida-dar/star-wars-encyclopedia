@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { API_URL } from '../config';
 
 /* SELECTORS */
 export const getAllFilters = ({filters}) => filters;
@@ -32,12 +33,12 @@ export const fetchSearchedItem = (input) => {
     try {
       const clearInput = input.toLowerCase();
 
-      const people = axios.get(`https://swapi.dev/api/people/?search=${clearInput}`);
-      const films = axios.get(`https://swapi.dev/api/films/?search=${clearInput}`);
-      const species = axios.get(`https://swapi.dev/api/species/?search=${clearInput}`);
-      const planets = axios.get(`https://swapi.dev/api/planets/?search=${clearInput}`);
-      const vehicles = axios.get(`https://swapi.dev/api/vehicles/?search=${clearInput}`);
-      const starships = axios.get(`https://swapi.dev/api/starships/?search=${clearInput}`);
+      const people = axios.get(`${API_URL}/people/?search=${clearInput}`);
+      const films = axios.get(`${API_URL}/films/?search=${clearInput}`);
+      const species = axios.get(`${API_URL}/species/?search=${clearInput}`);
+      const planets = axios.get(`${API_URL}/planets/?search=${clearInput}`);
+      const vehicles = axios.get(`${API_URL}/vehicles/?search=${clearInput}`);
+      const starships = axios.get(`${API_URL}/starships/?search=${clearInput}`);
 
       await axios
         .all([people, films, species, planets, vehicles, starships])
@@ -59,7 +60,6 @@ export const fetchSearchedItem = (input) => {
 export default function reducer(statePart = [], action = {}) {
   switch (action.type) {
       case GET_ITEM:
-        console.log(statePart, action.payload);
         return {
           ...statePart,
           searchedItem: [...action.payload],
