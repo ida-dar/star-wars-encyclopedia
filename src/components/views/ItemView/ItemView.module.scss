@@ -1,0 +1,41 @@
+@import '../../../styles/settings.scss';
+
+.title {
+  margin: ($base-size *2 ) auto;
+  text-align: center;
+}
+
+.detail {
+  padding-top: ($base-size * 2);
+
+  .key, .value {
+    display: inline-block;
+    margin: 0;
+  }
+
+  .key {
+    width: 250px;
+    padding: ($base-size * 0.25) 0;
+  }
+
+  .value {
+    margin-left: ($base-size * 2);
+    font-size: 1.05rem;
+  }
+
+  .list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    list-style: none;
+
+    li {
+      padding: ($base-size * 0.25) 0;
+      width: 420px;
+
+      i {
+        padding: 0 ($base-size * 0.5);
+      }
+    }
+  }
+}

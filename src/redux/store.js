@@ -3,6 +3,8 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import thunk from 'redux-thunk';
 
 import globalReducer from './globalRedux';
+import singleItemReducer from './singleItemRedux';
+import filtersReducer from './filtersRedux';
 
 // define initial state and shallow-merge initial data
 const initialState = {
@@ -29,6 +31,10 @@ const initialState = {
   singleItem: {
     data: {},
   },
+  filters: {
+    searchPhrase: '',
+    searchedItem: [],
+  },
   request: {
     pending: false,
     error: null,
@@ -39,6 +45,8 @@ const initialState = {
 // define reducers
 const reducers = {
   data: globalReducer,
+  singleItem: singleItemReducer,
+  filters: filtersReducer,
 };
 
 Object.keys(initialState).forEach(item => {

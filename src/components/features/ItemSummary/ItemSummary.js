@@ -5,9 +5,8 @@ import styles from './ItemSummary.module.scss';
 
 const ItemSummary = ({category, ...props}) => {
 
-
   return(
-    <div className={`col-lg-3 col-md-6 col-sm-12`}>
+    <div className={`col-lg-4 col-md-5 col-sm-12`}>
       <Link to={`/${category}/${props.name ? props.name.replaceAll(' ', '-') : props.title.replaceAll(' ', '-')}`} className={styles.component}>
         <h4 className={styles.name}>{props.name || props.title}</h4>
         {props.films ?

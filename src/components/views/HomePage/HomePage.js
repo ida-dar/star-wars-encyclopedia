@@ -9,7 +9,6 @@ const HomePage = () => {
       <h1 className={styles.title}>Welcome to Star Wars Encyclopedia</h1>
       <h3 className={styles.subtitle}>May the force be with you</h3>
       <p>This website is a SWAPI-based (Star Wars API) online encyclopedia that contains detailed information about the Star Wars universe, including movies, characters, species, planets, vehicles and starships.</p>
-      <p></p>
     </div>
   )
 }
