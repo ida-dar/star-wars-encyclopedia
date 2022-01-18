@@ -50,23 +50,23 @@ const Items = ({ items, loadPage, request }) => {
       {request.error && <Error />}
       {request.pending && <Loader />}
       {request.success &&
-      <>
-        <Filters />
-        <div className={styles.pageContainer}>
-          <p className={styles.pages}>No. of pages: {pages}</p>
-          {(data.next !== null) && <p className={styles.pages}>Current page: {parseInt(data.next.charAt(data.next.length-1)) - 1}</p>}
-          <div className={styles.buttonContainer}>
-            {(data.previous !== null) && <Button onClick={() => loadPage(data.previous)} variant='blue'>Previous page</Button>}
-            {(data.next !== null) && <Button onClick={() => loadPage(data.next)} variant='blue'>Next page</Button>}
+        <>
+          <Filters />
+          <div className={styles.pageContainer}>
+            <p className={styles.pages}>No. of pages: {pages}</p>
+            {(data.next !== null) && <p className={styles.pages}>Current page: {parseInt(data.next.charAt(data.next.length-1)) - 1}</p>}
+            <div className={styles.buttonContainer}>
+              {(data.previous !== null) && <Button onClick={() => loadPage(data.previous)} variant='blue'>Previous page</Button>}
+              {(data.next !== null) && <Button onClick={() => loadPage(data.next)} variant='blue'>Next page</Button>}
+            </div>
           </div>
-        </div>
-      </>
+          <div className='row'>
+            {data.results.map((props, index) => (
+              <ItemSummary key={index} {...props} category={category} />
+            ))}
+          </div>
+        </>
       }
-      <div className='row'>
-        {data.results.map((props, index) => (
-          <ItemSummary key={index} {...props} category={category} />
-        ))}
-      </div>
     </div>
   )
 }

@@ -36,14 +36,12 @@ export const fetchAll = () => {
     dispatch(startRequest({ name: 'LOAD_ALL' }));
 
     try {
-      const res = await axios.get(API_URL);
-
-      const people = await axios.get(`${res.data.people}`);
-      const planets = await axios.get(`${res.data.planets}`);
-      const films = await axios.get(`${res.data.films}`);
-      const species = await axios.get(`${res.data.species}`);
-      const vehicles = await axios.get(`${res.data.vehicles}`);
-      const starships = await axios.get(`${res.data.starships}`);
+      const people = await axios.get(`${API_URL}/people`);
+      const planets = await axios.get(`${API_URL}/planets`);
+      const films = await axios.get(`${API_URL}/films`);
+      const species = await axios.get(`${API_URL}/species`);
+      const vehicles = await axios.get(`${API_URL}/vehicles`);
+      const starships = await axios.get(`${API_URL}/starships`);
 
       const data = {
         people: people.data,
