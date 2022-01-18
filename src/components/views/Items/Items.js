@@ -9,7 +9,7 @@ import Loader from '../../features/Loader/Loader';
 import Error from '../../features/Error/Error';
 import Button from '../../common/Button/Button';
 
-const Items = ({ items, loadPage, previousPage, request }) => {
+const Items = ({ items, loadPage, request }) => {
 
   const location = useLocation();
   let data;
@@ -47,9 +47,9 @@ const Items = ({ items, loadPage, previousPage, request }) => {
 
   return(
     <div className='container'>
-      {request.error === true && <Error />}
-      {request.pending === true && <Loader />}
-      {request.success === true &&
+      {request.error && <Error />}
+      {request.pending && <Loader />}
+      {request.success &&
       <>
         <Filters />
         <div className={styles.pageContainer}>

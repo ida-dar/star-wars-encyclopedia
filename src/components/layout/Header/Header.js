@@ -48,13 +48,6 @@ const Header = () => {
               <p className={styles.logo}> encyclopedia</p>
             </Link>
           </div>
-          {/* <div className={`${styles.icons} col-2`}>
-            <i className="fab fa-old-republic" />
-            <i className='fab fa-jedi-order' />
-            <i className={`${styles.button} fas fa-bars`} onClick={() => setNavbarOpen(!navbarOpen)} />
-            <i className="fab fa-galactic-senate"></i>
-            <i className="fab fa-galactic-republic" />
-          </div> */}
           <div className='col-lg-6 col-sm-12'>
             <i className={`${styles.button} fas fa-bars`} onClick={() => setNavbarOpen(!navbarOpen)} />
             <nav className={`${styles.nav} ${navbarOpen ? styles.opened : ''}`}>
