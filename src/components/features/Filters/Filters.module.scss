@@ -21,7 +21,13 @@
     color: $color-secondary;
     transition: all 0.3s ease-in-out;
 
-    &:hover {
+    &:hover:not([disabled]) {
+      background-color: $color-secondary;
+      color: $color-primary;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
       background-color: $color-secondary;
       color: $color-primary;
     }

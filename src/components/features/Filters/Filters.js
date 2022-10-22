@@ -57,7 +57,7 @@ class Filters extends React.Component {
                 onChange={this.updateTextField}
               />
             </label>
-            <button className={styles.button} type='submit'>Search</button>
+            <button className={styles.button} type='submit' disabled={!search.input}>Search</button>
           </form>
         </div>
         <div className={`col-lg-6 col-md-6 col-sm-12 ${styles.results}`}>
