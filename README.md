@@ -13,7 +13,7 @@ I plan on developing the project in the future.
 - npm : 6.x.x or above
 
 #### Clone this repo:
-`git clone https://github.com/ida-dar/encyclopedia.git`
+`git clone https://github.com/ida-dar/star-wars-encyclopedia.git`
 
 #### Navigate to the root folder and install all dependencies:
 
